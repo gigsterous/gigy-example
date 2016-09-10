@@ -20,7 +20,7 @@ public class Person {
 
 	private int age;
 
-	protected Person() {
+	public Person() {
 		// empty constuctor for Hibernate
 	}
 
