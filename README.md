@@ -18,7 +18,6 @@ curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET
 Posting new person to the API:
 ```
 curl -H "Content-Type: application/json" -X POST -d '{"name":"Mark","age":40}' http://localhost:8000/gigy/people
-{"id":4,"name":"Mark","age":40}
 ```
 
 Delete person based on ID:
