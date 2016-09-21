@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.gigy.model.Party;
 import com.gigy.model.Person;
 import com.gigy.repository.PersonRepository;
 
@@ -47,6 +48,17 @@ public class PersonController {
 		personRepo.delete(id);
 		
 		return new ResponseEntity<Void>(HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/{id}/parties", method = RequestMethod.GET)
+	public ResponseEntity<Collection<Party>> getPersonParties(@PathVariable long id) {
+		Person person = personRepo.findOne(id);
+
+		if (person != null) {
+			return new ResponseEntity<>(person.getParties(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+		}
 	}
 
 }
