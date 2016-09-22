@@ -24,3 +24,7 @@ Delete person based on ID:
 ```
 curl -X DELETE http://localhost:8000/gigy/people/2
 ```
+
+## LICENSE
+
+The code is released under the Apache License 2.0. See LICENSE for details.
