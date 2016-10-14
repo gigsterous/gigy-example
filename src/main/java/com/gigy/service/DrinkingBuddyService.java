@@ -1,5 +1,6 @@
 package com.gigy.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gigy.model.Person;
@@ -7,12 +8,19 @@ import com.gigy.repository.PersonRepository;
 
 @Service
 public class DrinkingBuddyService implements BuddyService {
+	
+	private PersonRepository repository;
+	
+	@Autowired
+	public DrinkingBuddyService(PersonRepository repository) {
+		this.repository = repository;
+	}
 
 	/**
 	 * Finds and returns person with smallest age difference to the input.
 	 */
 	@Override
-	public Person findBuddy(PersonRepository repository, Person person) {
+	public Person findBuddy(Person person) {
 		Person buddy = null;
 		
 		for (Person p : repository.findAll()) {

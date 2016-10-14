@@ -20,7 +20,7 @@ public class DrinkingBuddyServiceTest {
 	@Before
 	public void prepare() {
 		repository = mock(PersonRepository.class);
-		service = new DrinkingBuddyService();
+		service = new DrinkingBuddyService(repository);
 	}
 	
 	@Test
@@ -47,7 +47,7 @@ public class DrinkingBuddyServiceTest {
 	    
 	    when(repository.findAll()).thenReturn(people);
 	    
-	    assertEquals(service.findBuddy(repository, p1), p2);
+	    assertEquals(service.findBuddy(p1), p2);
 	}
 
 }
