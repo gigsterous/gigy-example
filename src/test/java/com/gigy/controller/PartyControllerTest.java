@@ -24,7 +24,7 @@ import com.gigy.model.Party;
 import com.gigy.repository.PartyRepository;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(PartyController.class)
+@WebMvcTest(value = PartyController.class, secure = false)
 public class PartyControllerTest {
 
 	@Autowired

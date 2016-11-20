@@ -24,7 +24,7 @@ import com.gigy.model.Person;
 import com.gigy.repository.PersonRepository;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(PersonController.class)
+@WebMvcTest(value = PersonController.class, secure = false)
 public class PersonControllerTest {
 
 	@Autowired
