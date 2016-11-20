@@ -27,13 +27,15 @@ public class Person {
 	private long id;
 
 	private String name;
+	
+	private String username;
 
 	private int age;
 
-	@OneToMany(mappedBy = "person")
+	@OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
 	private Set<Skill> skills = new HashSet<Skill>();
 
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.MERGE)
 	@JsonBackReference
 	@JoinTable(name = "people_parties",
 		joinColumns = @JoinColumn(name = "person_id", referencedColumnName = "person_id"),
@@ -54,6 +56,14 @@ public class Person {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public int getAge() {
