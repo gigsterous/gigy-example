@@ -1,6 +1,15 @@
+/* USERS */
+CREATE TABLE users (
+    user_id BIGINT PRIMARY KEY auto_increment,
+    username VARCHAR(128) UNIQUE,
+    password VARCHAR(256),
+    enabled BOOL,
+);
+
 CREATE TABLE people (
     person_id BIGINT PRIMARY KEY auto_increment,
     name VARCHAR(32),
+    username VARCHAR(128) UNIQUE REFERENCES users (username),
     age INT,
 );
 

@@ -11,5 +11,7 @@ import com.gigy.model.Person;
 public interface PersonRepository extends CrudRepository<Person, Long> {
 	
 	Collection<Person> findAll();
+	
+	Person findByUsername(String username);
 
 }
